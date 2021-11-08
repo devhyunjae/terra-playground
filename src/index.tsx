@@ -2,8 +2,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { getChainOptions, WalletProvider } from '@terra-money/wallet-provider';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const queryClient = new QueryClient();
+getChainOptions().then((chainOptions) => {
+  ReactDOM.render(
+    <QueryClientProvider client={queryClient}>
+      <WalletProvider {...chainOptions}>
+        <App />
+      </WalletProvider>
+    </QueryClientProvider>,
+    document.getElementById('root')
+  );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
