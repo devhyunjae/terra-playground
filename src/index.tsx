@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@devhyunjae2/style-router';
 
 ReactDOM.render(
-  <ThemeProvider>
+  <ThemeProvider resetCss>
     <App />
   </ThemeProvider>,
   document.getElementById('root')

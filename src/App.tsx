@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
-import './App.css';
 import {
   Button,
   Content,
   Header,
   Layout,
   Sider,
-  Footer,
+  MenuItem,
+  PageHeader,
+  Card,
 } from '@devhyunjae2/station-ui';
+import { Col, Row } from '@devhyunjae2/station-ui/grids/Row';
 import { useStyle } from '@devhyunjae2/style-router';
 // import 'antd/dist/antd.css';
 // import { Layout } from 'antd';
@@ -17,85 +19,73 @@ function App() {
   // const { Header, Footer, Sider, Content } = Layout;
 
   return (
-    <Layout hasSider style={{ height: '100%' }}>
+    <Layout hasSider>
       <Sider>
-        <div>Sider</div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 63,
+          }}
+        >
+          <h2>Terra Station</h2>
+        </div>
+        <div
+          style={{
+            height: 1,
+            backgroundColor: '#f3f3f3',
+            opacity: 0.1,
+          }}
+        />
+        <div
+          style={{
+            padding: '40px 20px',
+          }}
+        >
+          <MenuItem>Wallet</MenuItem>
+          <MenuItem>History</MenuItem>
+          <MenuItem>Validators</MenuItem>
+          <MenuItem>Governance</MenuItem>
+          <MenuItem>Contract</MenuItem>
+          <MenuItem>Discover</MenuItem>
+        </div>
       </Sider>
-      <Layout>
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+      <Layout inner>
+        <Header fixed>
+          <div style={{ padding: 20 }}>HEADER</div>
+        </Header>
+        <Content>
+          <div style={{ padding: '36px 64px' }}>
+            <PageHeader
+              title="Wallet"
+              extra={
+                <Button variant="primary" size="small">
+                  Sign TX
+                </Button>
+              }
+            />
+            <Row gap="10px">
+              <Col flex={2} gap="20px">
+                <Card style={{ height: 160 }}>card1</Card>
+                <Card>card2</Card>
+              </Col>
+              <Col flex={1} gap="20px">
+                <Card style={{ lineHeight: 10 }}>card3</Card>
+                <Card style={{ lineHeight: 10 }}>
+                  asdfsdafsf <br />
+                  asdfsdafsf <br />
+                  asdfsdafsf <br />
+                  asdfsdafsf <br />
+                  asdfsdafsf <br />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        </Content>
       </Layout>
     </Layout>
-    // <Layout hasSider>
-    //   <Sider>
-    //     <div
-    //       style={{
-    //         height: '64px',
-    //         borderBottom: '1px solid #f3f3f3',
-    //         display: 'flex',
-    //         alignItems: 'center',
-    //         justifyContent: 'center',
-    //       }}
-    //     >
-    //       Terra Station
-    //     </div>
-    //     <div style={{ height: '100%' }}>toher</div>
-    //   </Sider>
-    //   <div style={{ height: 300, overflowY: 'scroll' }}>
-    //     <Layout>
-    //       <Header
-    //         fixed
-    //         style={{
-    //           backgroundColor: 'pink',
-    //           display: 'flex',
-    //           alignItems: 'center',
-    //           justifyContent: 'center',
-    //         }}
-    //       >
-    //         this is fixed header
-    //       </Header>
-    //       <Content
-    //         style={{
-    //           minHeight: 120,
-    //           backgroundColor: 'blue',
-    //         }}
-    //       >
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //         this is content this is content this is content
-    //         <br />
-    //       </Content>
-    //       <Footer
-    //         style={{
-    //           backgroundColor: 'pink',
-    //         }}
-    //       >
-    //         this is footer
-    //       </Footer>
-    //     </Layout>
-    //   </div>
-    // </Layout>
   );
 }
 
