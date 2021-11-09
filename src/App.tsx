@@ -41,7 +41,7 @@ function App() {
   //     return balance
   //   },
   // }))
-  const hello = useQuery(
+  const tokenBalance = useQuery(
     'asdfsf',
     () =>
       lcd.wasm.contractQuery<{ balance: string }>(
@@ -52,15 +52,15 @@ function App() {
       enabled: !!connected?.terraAddress,
     }
   );
-  console.log('hello', hello.data);
+  console.log('tokenBalance', tokenBalance.data);
   // const coins = useQuery('bank-total', () => lcd.bank.total());
-  const balance2 = useQuery(
+  const coinsBalance = useQuery(
     'bblance',
     () => lcd.bank.balance(connected?.terraAddress as string),
     { enabled: !!connected?.terraAddress }
   );
 
-  console.log('balance2', balance2);
+  console.log('coinsBalance', coinsBalance.data);
   // const tokens = useQuery('tokens', () =>
   //   axios.get('https://assets.terra.money/cw20/tokens.json')
   // );
@@ -90,6 +90,12 @@ function App() {
         >
           terra extension connect
         </button>
+      )}
+      {tokenBalance.data && (
+        <>
+          <h2>Your YES COIN balance</h2>
+          <p>{tokenBalance.data?.balance} YESS</p>
+        </>
       )}
     </div>
   );
