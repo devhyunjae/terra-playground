@@ -54,7 +54,22 @@ function App() {
       </Sider>
       <Layout inner>
         <Header fixed>
-          <div style={{ padding: 20 }}>HEADER</div>
+          <div
+            style={{
+              padding: 20,
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            HEADER
+            <Button
+              size="small"
+              onClick={() => updateColor(color === 'light' ? 'dark' : 'light')}
+            >
+              Toggle DarkMode
+            </Button>
+          </div>
         </Header>
         <Content>
           <div style={{ padding: '36px 64px' }}>
